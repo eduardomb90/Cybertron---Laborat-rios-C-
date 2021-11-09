@@ -2,7 +2,44 @@ using System;
 
 class Data
 {
-    public static void TestandoDatas()
+    public string NomePessoa { get; private set; }
+    public DateTime NascimentoPessoa { get; private set; }
+    public int Idade { get; private set; }
+    
+    
+    public Data(string nome, string nascimento)
+    {
+        DateTime nasc;
+        if(DateTime.TryParse(nascimento, out nasc))
+        {
+            if(ValidaData(nasc))
+                NascimentoPessoa = nasc;            
+        }
+        
+                
+    }
+
+    private bool ValidaData(DateTime nasc)
+    {
+        bool maior = false;
+
+        DateTime hoje = DateTime.Today;
+        int idade = hoje.Year - nasc.Year;
+
+        if(hoje.Month < nasc.Month || (hoje.Month == nasc.Month && hoje.Day < nasc.Day))
+            idade--;
+
+        if(idade >= 18)
+            Idade = idade;
+            maior = true;
+
+        
+        return maior;
+    }
+
+
+    
+    public static void TestandoMetodosDeDateTime()
     {
         DateTime data = new DateTime();
 
