@@ -6,7 +6,12 @@ namespace Laboratorios
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            //Laboratorio3.ArrayInteiro();
+            //Laboratorio3.ArrayString();
+            //Laboratorio3.ArrayDateTime();
+            //ExercicioUm.CopiaArray();
+            //ExercicioDois.SomaColunasArrayMultiDimensional();
+            ExercicioDois.SomaColunasArrayJagged();
         }
     }
 }
