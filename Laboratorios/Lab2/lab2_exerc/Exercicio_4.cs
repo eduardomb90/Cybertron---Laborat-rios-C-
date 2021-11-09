@@ -9,5 +9,12 @@ class Exercicio_4
         f = 0.5F;
         i = (int) f; //conversão explícita, com perda de dados.
         System.Console.WriteLine(i);
+
+        /*
+            É preciso ter cuidado ao fazer conversões, pois quando convertemos de um tipo maior para um menor,
+            double para int, por exemplo, temos perda de precisão.
+            
+                double 0.5 --> (int) casting --> int 0            
+        */
     }
 }

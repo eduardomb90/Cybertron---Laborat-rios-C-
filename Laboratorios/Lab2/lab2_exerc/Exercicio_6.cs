@@ -20,5 +20,12 @@ class Exercicio_6
         double valorStringLetras;
         bool conversao3 = Double.TryParse(stringLetras, out valorStringLetras);
         Console.WriteLine($"Conversão efetuada: {conversao3} Valor: {valorStringLetras}");
+
+        /*
+            O TryParse eh um metodo que retorna um booleano, que nos diz se uma tentativa de conversao foi bem sucedida
+            ou nao.
+
+            Isso eh bom pois evita que o codigo quebre, podendo fazer um tratamento em caso de falha na conversao.
+        */
     }
 }
