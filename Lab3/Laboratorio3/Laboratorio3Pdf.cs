@@ -1,6 +1,6 @@
 using System;
 
-public class Laboratorio3
+public class Laboratorio3Pdf
 {
     public static void ArrayInteiro()
     {
