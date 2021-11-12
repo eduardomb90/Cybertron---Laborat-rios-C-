@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+
 
 namespace Laboratorio6
 {
@@ -37,3 +37,8 @@ namespace Laboratorio6
         }
     }
 }
+
+/*
+    Em uma coleção do tipo Conta, só é possível chamar os métodos das subclasses que estão declarados na classe mãe (Conta).
+    Por isso, foi necessário fazer uma conversão para poder chamar os métodos específicos de cada classe.
+*/
