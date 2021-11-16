@@ -4,7 +4,7 @@ public class PessoaTres : IComparable<PessoaTres>
 {
     private string meuNome;
     private int minhaIdade;
-    private bool idadeNome = false;
+    private static bool idadeNome = false;
     
     public PessoaTres(string n, int i)
     {
@@ -24,10 +24,12 @@ public class PessoaTres : IComparable<PessoaTres>
     public int CompareTo(PessoaTres outro)
     {
         if(idadeNome)
+        {
+            idadeNome = !idadeNome;
             return meuNome.CompareTo(outro.meuNome);
+        }    
 
         idadeNome = !idadeNome;
-        
         return minhaIdade.CompareTo(outro.minhaIdade);
     }
 }
