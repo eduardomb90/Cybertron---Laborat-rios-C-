@@ -2,8 +2,9 @@ public class TermometroLimite : Termometro
 {
     private double limiteSuperior;
     private bool disparadoEventoLimiteSuperior;
-    public delegate void MeuDelegate(string msg);
+    public delegate void MeuDelegate(string msg, double temp);
     public event MeuDelegate LimiteSuperiorEvent;
+    public event MeuDelegate TemperaturaNormalEvent;
 
     public TermometroLimite(double ls)
     {
@@ -19,9 +20,18 @@ public class TermometroLimite : Termometro
         {
             if(LimiteSuperior != null)
             {
-                LimiteSuperiorEvent("Atencao: temperatura acima do limite!");
+                LimiteSuperiorEvent("Atencao: temperatura acima do limite!", this.Temperatura);
                 disparadoEventoLimiteSuperior = true;
             }
+        }
+    }
+
+    private void OnTemperaturaNormalEvent()
+    {
+        if((this.Temperatura <= limiteSuperior) && (disparadoEventoLimiteSuperior))
+        {
+            TemperaturaNormalEvent("Atencao: temperatura esta em niveis normais.", this.Temperatura);
+            disparadoEventoLimiteSuperior = false;
         }
     }
 
@@ -41,7 +51,7 @@ public class TermometroLimite : Termometro
         base.Diminuir();
         if((this.Temperatura <= limiteSuperior) && (disparadoEventoLimiteSuperior))
         {
-            disparadoEventoLimiteSuperior = false;
+            OnTemperaturaNormalEvent();
         }
     }
     public override void Diminuir(double quantia)
@@ -49,7 +59,7 @@ public class TermometroLimite : Termometro
         base.Diminuir(quantia);
         if((this.Temperatura <= limiteSuperior) && (disparadoEventoLimiteSuperior))
         {
-            disparadoEventoLimiteSuperior = false;
+            OnTemperaturaNormalEvent();
         }
     }
 
